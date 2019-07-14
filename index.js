@@ -64,8 +64,8 @@ var Typer={
 		}
 		
 		if (key.preventDefault && key.keyCode != 122) { 
-			key.preventDefault()
-		};  
+			key.preventDefault();
+		}
 		
 		if(key.keyCode != 122){ // otherway prevent keys default behavior
 			key.returnValue = false;
@@ -81,7 +81,7 @@ var Typer={
 		else
 			this.write("|"); // else write it
 	}
-}
+};
 
 function replaceUrls(text) {
 	var http = text.indexOf("http://");
@@ -93,7 +93,7 @@ function replaceUrls(text) {
 	} 
 	
 	else {
-		return text
+		return text;
 	}
 }
 
