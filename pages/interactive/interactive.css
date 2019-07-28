@@ -1,0 +1,22 @@
+html{
+    background-color: black;
+    color: antiquewhite;
+    font-family: "Consolas";
+    font-size: 14px;
+}
+
+#console{
+    max-width: 100%;
+    margin: auto;
+    padding-top: 3em;
+}
+
+a{
+    color: lightskyblue;
+}
+
+@media only screen and (min-width: 768px) {
+    #console{
+        max-width: 920px;
+    }
+}
