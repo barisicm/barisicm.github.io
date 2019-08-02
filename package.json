@@ -1,0 +1,30 @@
+{
+  "name": "barisicm.github.io",
+  "version": "1.0.0",
+  "description": "Marin's portfolio website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/barisicm/barisicm.github.io.git"
+  },
+  "keywords": [
+    "Portfolio",
+    "front-end",
+    "developer",
+    "coding"
+  ],
+  "author": "Marin Barišić",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/barisicm/barisicm.github.io/issues"
+  },
+  "homepage": "https://github.com/barisicm/barisicm.github.io#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2"
+  }
+}

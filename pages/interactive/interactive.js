@@ -8,16 +8,18 @@ setInterval(function() {
     }
 }, 500);
 
+var CMDentry = document.getElementById("cmdEntry");
 // keypress listener
 document.addEventListener("keydown", function(e) {
-    var CMDentry = document.getElementById("cmdEntry");
-    if(e.key==="Shift"){
-
-    } else if (e.key==="Backspace"){
+    if (e.key==="Backspace"){
         if(CMDentry.innerHTML.length > 5){
             CMDentry.innerHTML = CMDentry.innerHTML.slice(0, -1);
         }
-    } else if (e.key==="Enter") {
+    }
+});
+
+document.addEventListener("keypress", function(e){
+    if (e.key==="Enter") {
         var command = CMDentry.innerHTML.slice(5, CMDentry.innerHTML.length);
         checkCommands(command);
     } else {
@@ -27,19 +29,24 @@ document.addEventListener("keydown", function(e) {
 
 // are right commands inputted
 function checkCommands(command){
-    switch (command) {
-        case "About":
-            console.log("is About")
+    switch (command.toUpperCase()) {
+        case "ABOUT":
+            console.log("is About");
         break;
-        case "Projects":
+        case "PROJECTS":
+            console.log("is Projects");
         break;
-        case "Blog":
+        case "BLOG":
+            console.log("is Blog");
         break;
-        case "Skills":
+        case "SKILLS":
+            console.log("is Skills");
         break;
         case "CV":
+            console.log("is CV");
         break;
-        case "help":
+        case "HELP":
+            console.log("is Help");
         break;
     }
     if(command != "About" && command != "Projects" && command != "Blog" && command != "Skills" && command != "CV") {
@@ -50,5 +57,10 @@ function checkCommands(command){
 
 // invalid command
 function commandError(){
+
+}
+
+// 
+function consoleWrite(html){
 
 }
