@@ -29,7 +29,8 @@ document.addEventListener("keypress", function(e){
 
 // are right commands inputted
 function checkCommands(command){
-    switch (command.toUpperCase()) {
+    command = command.toUpperCase();
+    switch (command) {
         case "ABOUT":
             console.log("is About");
         break;
@@ -46,13 +47,13 @@ function checkCommands(command){
             console.log("is CV");
         break;
         case "HELP":
-            console.log("is Help");
+            getData(command);
         break;
     }
-    if(command != "About" && command != "Projects" && command != "Blog" && command != "Skills" && command != "CV") {
+
+    if(command != "ABOUT" && command != "PROJECTS" && command != "BLOG" && command != "SKILLS" && command != "CV" && command != "HELP") {
         console.log("invalid command");
     }
-
 }
 
 // invalid command
@@ -61,6 +62,29 @@ function commandError(){
 }
 
 // 
-function consoleWrite(html){
+function cmdWrite(html){
+    clearCmd();
+}
 
+function clearCmd(){
+    while(CMDentry.innerHTML.length > 5) {
+        CMDentry.innerHTML = CMDentry.innerHTML.slice(0, -1);
+        // ukombinirati timeout ili tako nešto
+    }
+}
+
+function getData(fileName){
+    // Set up our HTTP request
+    var xhr = new XMLHttpRequest();
+
+    xhr.onload = function() {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            cmdWrite(xhr.response);
+        } else {
+            console.log('Request failed');
+        }
+    };
+
+    xhr.open('GET', '../../resources/'+ fileName +'.txt');
+    xhr.send();
 }
