@@ -1,13 +1,6 @@
-Moje ime je
+Possible commands are as follows : <br/>
+> about projects blog skills CV & help <br/>
+> It is also possible to navigate using the menu bar <br/>
 
-Newline
-
-Newline
-
-Test
-
-TEst
-
-Test
-
-Idemo niš
+<br/>
+> mobile users should use the command window or menu to navigate

@@ -9,6 +9,7 @@ setInterval(function() {
 }, 500);
 
 var CMDentry = document.getElementById("cmdEntry");
+var helpText = document.getElementById("cmdUp");
 // keypress listener
 document.addEventListener("keydown", function(e) {
     if (e.key==="Backspace"){
@@ -32,19 +33,19 @@ function checkCommands(command){
     command = command.toUpperCase();
     switch (command) {
         case "ABOUT":
-            console.log("is About");
+            getData(command);
         break;
         case "PROJECTS":
-            console.log("is Projects");
+            getData(command);
         break;
         case "BLOG":
-            console.log("is Blog");
+            getData(command);
         break;
         case "SKILLS":
-            console.log("is Skills");
+            getData(command);
         break;
         case "CV":
-            console.log("is CV");
+            getData(command);
         break;
         case "HELP":
             getData(command);
@@ -58,20 +59,17 @@ function checkCommands(command){
 
 // invalid command
 function commandError(){
-
 }
 
-// 
 function cmdWrite(html){
-    clearCmd();
+    helpText.innerHTML = helpText.innerHTML.concat(html);
 }
 
 function clearCmd(){
-    while(CMDentry.innerHTML.length > 5) {
-        CMDentry.innerHTML = CMDentry.innerHTML.slice(0, -1);
-        // ukombinirati timeout ili tako nešto
-    }
+    helpText.innerHTML="> ";
+    CMDentry.innerHTML="> ";
 }
+
 
 function getData(fileName){
     // Set up our HTTP request
@@ -79,9 +77,10 @@ function getData(fileName){
 
     xhr.onload = function() {
         if (xhr.status >= 200 && xhr.status < 300) {
+            clearCmd();
             cmdWrite(xhr.response);
         } else {
-            console.log('Request failed');
+            window.alert("Critical files have gone missing. Please contact myself.");
         }
     };
 
